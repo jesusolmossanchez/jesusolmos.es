@@ -1,0 +1,21 @@
+{
+  "name": "jesus_olmos",
+  "version": "2.0.1",
+  "description": "Web personal de Jesús Olmos Sánchez",
+  "main": "index.html",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^1.5.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-clean-css": "^3.9.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jesús Olmos Sánchez",
+  "license": "ISC"
+}
