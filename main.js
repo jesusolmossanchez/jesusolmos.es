@@ -262,9 +262,12 @@ $(document).ready(function () {
         if (this.window.innerWidth > 700) {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            renderer.resize();
+            //renderer.resize();
             rerender();
         }
+        
+
+        $("html, body, #contenedor").css({ height: $(window).height() });
     };
 
 
