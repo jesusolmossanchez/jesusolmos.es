@@ -259,6 +259,9 @@ $(document).ready(function () {
 
 
     window.addEventListener("resize", function() {
+        
+        $("html, body, #contenedor").css({ height: $(window).height() });
+        
         if (this.window.innerWidth > 700) {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -266,7 +269,6 @@ $(document).ready(function () {
             rerender();
         }
         
-        $("html, body, #contenedor").css({ height: $(window).height() });
     
     }, false);
     
