@@ -203,7 +203,7 @@ function empieza_todo(){
     /*******************************************************************/
     /*******************************************************************/
     var rand = Math.floor(Math.random()*25)
-    var img = './src/img/imagen_00'+rand+'.jpg';
+    //var img = './src/img/imagen_00'+rand+'.jpg';
     var img = './dist/src/img/yo.jpg';
 
     var fake_img = new Image();
