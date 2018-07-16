@@ -257,8 +257,8 @@ $(document).ready(function () {
         //renderTime(start);
     });
 
-    // event handling
-    window.onresize = function () {
+
+    window.addEventListener("resize", function() {
         if (this.window.innerWidth > 700) {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -266,9 +266,10 @@ $(document).ready(function () {
             rerender();
         }
         
-
         $("html, body, #contenedor").css({ height: $(window).height() });
-    };
+    
+    }, false);
+    
 
 
     function rerender() {
