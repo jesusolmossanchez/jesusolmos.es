@@ -86,20 +86,8 @@ mouse.start(contenedor_loader, true);
 
 $(document).ready(function () {
 
-    $("html, body, #contenedor").css({ height: $(window).height() });
-
-
-    window.setTimeout(function () {
-        $("#contenedor_loader").addClass("activo");
-        $("#loader").addClass("activo");
-    }, 1000);
-
-    window.setTimeout(function () {
-        $("#fondo_negro").fadeOut(1000);
-        $("#trabajos_link").addClass("activo");
-
-    }, 4500);
-
+    empieza_todo();
+   
     $(".contiene_proyecto").click(function () {
         $(".contiene_proyecto").addClass("abierto_otro");
         $(this).addClass("abierto");
@@ -177,30 +165,32 @@ $(document).ready(function () {
         $(".texto_extra").hide();
     });
 
-    var over_largo;
     $(".con_video").hover(hoverVideo, hideVideo);
 
-    function hoverVideo(e) {
-        //console.log(e);
-        //console.log(this);
-        if($(this).hasClass("abierto")){
-            return;
-        }
-        var self = this;
-        over_largo = setTimeout(function () {
-            $(self).find("video")[0].play();
-            $(self).find("video").eq(0).css("opacity", 1);
-        }, 1000);
-    }
 
-    function hideVideo(e) {
-        if ($(this).hasClass("abierto")) {
-            return;
-        }
-        clearTimeout(over_largo);
-        $(this).find("video")[0].pause();
-        $(this).find("video").eq(0).css("opacity", 0);
-    }
+
+});
+
+
+var renderer;
+
+function empieza_todo(){
+
+    $("html, body, #contenedor").css({ height: $(window).height() });
+
+
+    window.setTimeout(function () {
+        $("#contenedor_loader").addClass("activo");
+        $("#loader").addClass("activo");
+    }, 1000);
+
+    window.setTimeout(function () {
+        $("#fondo_negro").fadeOut(1000);
+        $("#trabajos_link").addClass("activo");
+
+    }, 4500);
+
+
 
 
 
@@ -253,41 +243,35 @@ $(document).ready(function () {
 
     $("#inner_corte").height(canvas.height);
     $("#imagen_normal").height(canvas.height);
-    var renderer = new GlRenderer(canvas, vertices, true, img, function () {
+    renderer = new GlRenderer(canvas, vertices, true, img, function () {
         //renderTime(start);
     });
+}
 
-
-    window.addEventListener("resize", function() {
+window.addEventListener("resize", function() {
         
-        $("html, body, #contenedor").css({ height: $(window).height() });
-        
-        if (this.window.innerWidth > 700) {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            renderer.resize();
-            rerender();
-        }
-        
-    
-    }, false);
-    
+    empieza_todo();
 
+}, false);
 
-    function rerender() {
-
-        var vertices = window.innerWidth / 2;
-        
-        vertices = 650;
-        if (window.innerWidth < 700) {
-            vertices = 450;
-        }
-        $("#inner_corte").height(canvas.height);
-        $("#imagen_normal").height(canvas.height);
-        renderer = new GlRenderer(canvas, vertices, true, img, function () {
-            //renderTime(start);
-        });
+function hoverVideo(e) {
+    //console.log(e);
+    //console.log(this);
+    if($(this).hasClass("abierto")){
+        return;
     }
+    var self = this;
+    over_largo = setTimeout(function () {
+        $(self).find("video")[0].play();
+        $(self).find("video").eq(0).css("opacity", 1);
+    }, 1000);
+}
 
-
-});
+function hideVideo(e) {
+    if ($(this).hasClass("abierto")) {
+        return;
+    }
+    clearTimeout(over_largo);
+    $(this).find("video")[0].pause();
+    $(this).find("video").eq(0).css("opacity", 0);
+}
