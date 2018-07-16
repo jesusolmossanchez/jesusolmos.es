@@ -5,6 +5,9 @@ function is_touch_device() {
 
 
 function GlRenderer(canvas, maxVertexCnt, isImg, imgPath, videoElement) {
+
+    console.log("cuenado?",maxVertexCnt);
+
     this.canvas = canvas;
     this.maxVertexCnt = maxVertexCnt;
     this.isImg = isImg;
