@@ -87,7 +87,7 @@ mouse.start(contenedor_loader, true);
 $(document).ready(function () {
 
     empieza_todo();
-    $("#trabajos .contiene_proyecto").on("click", function(event){
+    $(document.body).on('click','.contiene_proyecto', function(e) {
         $(".contiene_proyecto").addClass("abierto_otro");
         $(this).addClass("abierto");
         var que_oblicuo = $(this).closest(".bloque_oblicuo");
